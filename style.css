@@ -357,7 +357,8 @@ input[type="range"] {
   border-radius: 8px;
   background: var(--board-background);
   background-position: center;
-  background-size: cover;
+  background-size: cover, cover, auto;
+  background-repeat: no-repeat, no-repeat, repeat;
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.28),
     var(--board-inner-shadow);
@@ -652,6 +653,10 @@ input[type="range"] {
   display: none !important;
 }
 
+#shuffleButton {
+  display: none !important;
+}
+
 .instagram-button:disabled {
   cursor: wait;
   opacity: 0.72;
@@ -712,7 +717,8 @@ input[type="range"] {
   border-radius: 8px;
   background: var(--board-background);
   background-position: center;
-  background-size: cover;
+  background-size: cover, cover, auto;
+  background-repeat: no-repeat, no-repeat, repeat;
 }
 
 .share-preview canvas {
@@ -787,7 +793,7 @@ input[type="range"] {
   .layout-three,
   .layout-cross,
   .layout-free {
-    grid-template-columns: repeat(2, minmax(118px, 1fr));
+    grid-template-columns: repeat(2, minmax(70px, 1fr));
   }
 
   .layout-cross .card-slot {
@@ -817,6 +823,6 @@ input[type="range"] {
   .layout-three,
   .layout-cross,
   .layout-free {
-    grid-template-columns: minmax(148px, 210px);
+    grid-template-columns: repeat(2, minmax(60px, 1fr));
   }
 }
