@@ -197,7 +197,7 @@ const spreadDefinitions = {
   cross: {
     className: "layout-cross",
     count: 5,
-    positions: ["中心", "上", "右", "下", "左"],
+    positions: ["現状", "解答", "未来", "原因", "過去"],
     ids: ["center", "top", "right", "bottom", "left"],
   },
   free: {
@@ -230,6 +230,13 @@ const shareDialog = document.querySelector("#shareDialog");
 const shareCanvas = document.querySelector("#shareCanvas");
 const shareCloseButton = document.querySelector("#shareCloseButton");
 const shareDownloadButton = document.querySelector("#shareDownloadButton");
+
+// Set this to true to hide card label panels below each card.
+// Change to false later to restore the labels.
+const hideCardLabels = true;
+if (hideCardLabels) {
+  document.body.classList.add("hide-card-labels");
+}
 
 let currentReading = [];
 let selectedCardIndex = 0;

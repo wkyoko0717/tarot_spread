@@ -537,6 +537,10 @@ input[type="range"] {
   backdrop-filter: blur(12px);
 }
 
+body.hide-card-labels .card-label {
+  display: none !important;
+}
+
 @media (max-width: 768px) {
   .card-label {
     padding: 4px 7px;
