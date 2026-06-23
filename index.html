@@ -1,110 +1,113 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tarot Shuffle</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <main class="app-shell">
-      <section class="toolbar" aria-label="タロット操作">
-        <div class="brand">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <div>
-            <h1>Tarot Shuffle</h1>
-            <p id="readingStamp">未展開</p>
-            <p class="debug-hint">デバッグ: URL末尾に <code>?debug=1</code></p>
-          </div>
-        </div>
 
-        <div class="controls">
-          <label class="field">
-            <span>スプレッド</span>
-            <select id="spreadSelect">
-              <option value="single">ワンカード</option>
-              <option value="three">3カード</option>
-              <option value="cross" selected>クロス</option>
-              <option value="free">自由配置</option>
-            </select>
-          </label>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tarot Shuffle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-          <label class="field debug-card" id="debugCardField" hidden>
-            <span>デバッグカード</span>
-            <select id="debugCardSelect"></select>
-          </label>
-
-          <label class="field cards-count" id="countField">
-            <span>枚数</span>
-            <input id="cardCount" type="range" min="1" max="10" value="5">
-            <strong id="countValue">5</strong>
-          </label>
-
-          <label class="field">
-            <span>背景</span>
-            <select id="backgroundSelect">
-              <option value="offwhite" selected>オフホワイト</option>
-              <option value="navy">ネイビー</option>
-              <option value="brown">ブラウン</option>
-            </select>
-          </label>
-
-          <label class="switch">
-            <input id="reversedToggle" type="checkbox" checked>
-            <span class="switch-track" aria-hidden="true"></span>
-            <span>逆位置</span>
-          </label>
-
-          <label class="switch">
-            <input id="minorArcanaToggle" type="checkbox" checked>
-            <span class="switch-track" aria-hidden="true"></span>
-            <span>小アルカナ</span>
-          </label>
-
-          <button class="primary-button" id="drawButton" type="button">
-            <span aria-hidden="true">✦</span>
-            並べる
-          </button>
-        </div>
-      </section>
-
-      <section class="reading-area" aria-label="タロットカードの配置">
-        <div class="spread-board layout-cross" id="spreadBoard"></div>
-      </section>
-
-      <aside class="detail-panel" id="detailPanel" aria-live="polite">
-        <div class="detail-art" id="detailArt" aria-hidden="true"></div>
-        <div class="detail-copy">
-          <span class="detail-kicker" id="detailPosition">選択中</span>
-          <h2 id="detailName">カードを選択</h2>
-          <p id="detailMeaning">展開されたカードを押すと、カード名とキーワードを表示します。</p>
-        </div>
-      </aside>
-    </main>
-
-    <dialog class="share-dialog" id="shareDialog" aria-labelledby="shareTitle">
-      <div class="share-dialog-shell">
-        <div class="share-dialog-header">
-          <div>
-            <span class="detail-kicker">4:5 Visual</span>
-            <h2 id="shareTitle">Instagram</h2>
-          </div>
-          <button class="icon-button" id="shareCloseButton" type="button" aria-label="閉じる">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="share-preview">
-          <canvas id="shareCanvas" width="1080" height="1350"></canvas>
-        </div>
-        <div class="share-actions">
-          <button class="primary-button" id="shareDownloadButton" type="button">
-            <span aria-hidden="true">↓</span>
-            PNG保存
-          </button>
+<body>
+  <main class="app-shell">
+    <section class="toolbar" aria-label="タロット操作">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <h1>Tarot Shuffle</h1>
+          <p id="readingStamp">未展開</p>
+          <p class="debug-hint">デバッグ: URL末尾に <code>?debug=1</code></p>
         </div>
       </div>
-    </dialog>
 
-    <script src="script.js"></script>
-  </body>
+      <div class="controls">
+        <label class="field">
+          <span>スプレッド</span>
+          <select id="spreadSelect">
+            <option value="single">ワンカード</option>
+            <option value="three">3カード</option>
+            <option value="cross" selected>クロス</option>
+            <option value="free">自由配置</option>
+          </select>
+        </label>
+
+        <label class="field debug-card" id="debugCardField" hidden>
+          <span>デバッグカード</span>
+          <select id="debugCardSelect"></select>
+        </label>
+
+        <label class="field cards-count" id="countField">
+          <span>枚数</span>
+          <input id="cardCount" type="range" min="1" max="10" value="5">
+          <strong id="countValue">5</strong>
+        </label>
+
+        <label class="field">
+          <span>背景</span>
+          <select id="backgroundSelect">
+            <option value="offwhite" selected>オフホワイト</option>
+            <option value="navy">ネイビー</option>
+            <option value="brown">ブラウン</option>
+          </select>
+        </label>
+
+        <label class="switch">
+          <input id="reversedToggle" type="checkbox" checked>
+          <span class="switch-track" aria-hidden="true"></span>
+          <span>逆位置</span>
+        </label>
+
+        <label class="switch">
+          <input id="minorArcanaToggle" type="checkbox" checked>
+          <span class="switch-track" aria-hidden="true"></span>
+          <span>小アルカナ</span>
+        </label>
+
+        <button class="primary-button" id="drawButton" type="button">
+          <span aria-hidden="true">✦</span>
+          並べる
+        </button>
+      </div>
+    </section>
+
+    <section class="reading-area" aria-label="タロットカードの配置">
+      <div class="spread-board layout-cross" id="spreadBoard"></div>
+    </section>
+
+    <aside class="detail-panel" id="detailPanel" aria-live="polite">
+      <div class="detail-art" id="detailArt" aria-hidden="true"></div>
+      <div class="detail-copy">
+        <span class="detail-kicker" id="detailPosition">選択中</span>
+        <h2 id="detailName">カードを選択</h2>
+        <p id="detailMeaning">展開されたカードを押すと、カード名とキーワードを表示します。</p>
+      </div>
+    </aside>
+  </main>
+
+  <dialog class="share-dialog" id="shareDialog" aria-labelledby="shareTitle">
+    <div class="share-dialog-shell">
+      <div class="share-dialog-header">
+        <div>
+          <span class="detail-kicker">4:5 Visual</span>
+          <h2 id="shareTitle">Instagram</h2>
+        </div>
+        <button class="icon-button" id="shareCloseButton" type="button" aria-label="閉じる">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="share-preview">
+        <canvas id="shareCanvas" width="1080" height="1350"></canvas>
+      </div>
+      <div class="share-actions">
+        <button class="primary-button" id="shareDownloadButton" type="button">
+          <span aria-hidden="true">↓</span>
+          PNG保存
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
