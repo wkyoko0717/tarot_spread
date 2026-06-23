@@ -403,9 +403,9 @@ input[type="range"] {
   position: relative;
   z-index: 1;
   display: grid;
-  place-content: center;
+  justify-content: center;
+  align-content: start;
   gap: clamp(12px, 2vw, 24px);
-  min-height: 100%;
   margin: 0 auto;
 }
 
