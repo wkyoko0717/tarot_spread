@@ -647,12 +647,18 @@ input[type="range"] {
       line-height: 1.6;
     }
 
-    .instagram-button {
+    .card-label,
+    .card-label * {
       display: none !important;
+      visibility: hidden !important;
     }
 
-    #shuffleButton {
+    .instagram-button,
+    button#shuffleButton,
+    button[aria-label="シャッフル"] {
       display: none !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
     }
 
     .instagram-button:disabled {
