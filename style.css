@@ -796,11 +796,6 @@ input[type="range"] {
     grid-template-columns: repeat(3, minmax(60px, 1fr));
   }
 
-  .layout-cross .card-slot {
-    grid-column: auto !important;
-    grid-row: auto !important;
-  }
-
   .detail-panel {
     grid-template-columns: 76px minmax(0, 1fr);
   }
