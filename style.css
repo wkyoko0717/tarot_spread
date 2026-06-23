@@ -647,21 +647,7 @@ input[type="range"] {
 }
 
 .instagram-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  align-self: end;
-  min-height: 42px;
-  padding: 0 16px;
-  border: 0;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 0.86rem;
-  font-weight: 900;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 42%),
-    linear-gradient(135deg, var(--claret), #533a7c 54%, var(--teal));
-  box-shadow: 0 10px 22px rgba(77, 66, 111, 0.22);
+  display: none !important;
 }
 
 .instagram-button:disabled {
