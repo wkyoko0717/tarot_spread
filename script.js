@@ -767,9 +767,13 @@ minorArcanaToggle.addEventListener("change", () => {
   draw();
 });
 debugCardSelect.addEventListener("change", draw);
-shuffleButton.addEventListener("click", draw);
+if (shuffleButton) {
+  shuffleButton.addEventListener("click", draw);
+}
 drawButton.addEventListener("click", draw);
-instagramButton.addEventListener("click", generateInstagramVisual);
+if (instagramButton) {
+  instagramButton.addEventListener("click", generateInstagramVisual);
+}
 shareCloseButton.addEventListener("click", closeShareDialog);
 shareDownloadButton.addEventListener("click", downloadShareImage);
 shareDialog.addEventListener("click", (event) => {

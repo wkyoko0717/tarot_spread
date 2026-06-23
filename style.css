@@ -352,9 +352,6 @@ input[type="range"] {
   border: 1px solid rgba(31, 36, 48, 0.1);
   border-radius: 8px;
   background: var(--board-background);
-  background-position: center;
-  background-size: cover, cover, auto;
-  background-repeat: no-repeat, no-repeat, repeat;
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.28),
     var(--board-inner-shadow);
@@ -364,35 +361,38 @@ input[type="range"] {
 @media (max-width: 768px) {
   .reading-area {
     padding: 108px 8px;
+  }
+}
 
-    .reading-area::before {
-      position: absolute;
-      inset: 0;
-      display: none;
-      border-radius: inherit;
-      background: var(--generated-board-background);
-      content: "";
-      pointer-events: none;
-    }
+.reading-area::before {
+  position: absolute;
+  inset: 0;
+  display: none;
+  border-radius: inherit;
+  background: var(--generated-board-background);
+  content: "";
+  pointer-events: none;
+}
 
-    .reading-area.show-generated-background::before {
-      display: block;
-    }
+.reading-area.show-generated-background::before {
+  display: block;
+}
 
-    .spread-board {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      justify-content: center;
-      align-content: start;
-      gap: clamp(12px, 2vw, 24px);
-      margin: 0 auto;
-    }
+.spread-board {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-content: center;
+  align-content: start;
+  gap: clamp(12px, 2vw, 24px);
+  margin: 0 auto;
+}
 
-    @media (max-width: 768px) {
-      .spread-board {
-        gap: 6px;
-      }
+@media (max-width: 768px) {
+  .spread-board {
+    gap: 6px;
+  }
+}
     }
 
     .layout-single {
