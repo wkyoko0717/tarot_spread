@@ -793,7 +793,7 @@ input[type="range"] {
   .layout-three,
   .layout-cross,
   .layout-free {
-    grid-template-columns: repeat(2, minmax(70px, 1fr));
+    grid-template-columns: repeat(3, minmax(60px, 1fr));
   }
 
   .layout-cross .card-slot {
@@ -823,6 +823,6 @@ input[type="range"] {
   .layout-three,
   .layout-cross,
   .layout-free {
-    grid-template-columns: repeat(2, minmax(60px, 1fr));
+    grid-template-columns: repeat(3, minmax(50px, 1fr));
   }
 }
