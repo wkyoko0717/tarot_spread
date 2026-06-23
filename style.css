@@ -348,7 +348,7 @@ input[type="range"] {
 .reading-area {
   position: relative;
   min-height: 0;
-  padding: clamp(10px, 2vw, 24px);
+  padding: calc(clamp(10px, 2vw, 24px) + 100px) clamp(10px, 2vw, 24px);
   border: 1px solid rgba(31, 36, 48, 0.1);
   border-radius: 8px;
   background: var(--board-background);
@@ -363,10 +363,7 @@ input[type="range"] {
 
 @media (max-width: 768px) {
   .reading-area {
-    padding: 8px;
-  }
-}
-
+    padding: 108px 8px;
 .reading-area::before {
   position: absolute;
   inset: 0;
